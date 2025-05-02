@@ -1,0 +1,20 @@
+.tree-view {
+    display: block;
+    margin-left: 20px;
+}
+
+.dashboard {
+    margin: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    gap: 10px;
+}
+
+button {
+    cursor: pointer;
+    padding: 20px;
+    margin: 20px;
+    font-size: inherit;
+    color: inherit;
+}

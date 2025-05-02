@@ -1,0 +1,11 @@
+<div class="dashboard">
+        <div class="tree-view">
+
+                @for (node of data(); track node.id) {
+                <lib-asset-node style="margin:30px" [node]="node" />
+                }
+        </div>
+
+        <button (click)="clearSelection()">Clear Selection</button>
+</div>
+<lib-selection-result></lib-selection-result>

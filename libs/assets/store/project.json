@@ -1,0 +1,36 @@
+{
+    "name": "assets-store",
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/assets/store/src",
+    "prefix": "lib",
+    "projectType": "library",
+    "tags": ["model", "assets"],
+    "targets": {
+        "build": {
+            "executor": "@nx/angular:ng-packagr-lite",
+            "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+            "options": {
+                "project": "libs/assets/store/ng-package.json"
+            },
+            "configurations": {
+                "production": {
+                    "tsConfig": "libs/assets/store/tsconfig.lib.prod.json"
+                },
+                "development": {
+                    "tsConfig": "libs/assets/store/tsconfig.lib.json"
+                }
+            },
+            "defaultConfiguration": "production"
+        },
+        "test": {
+            "executor": "@nx/vite:test",
+            "outputs": ["{options.reportsDirectory}"],
+            "options": {
+                "reportsDirectory": "../../../coverage/libs/assets/store"
+            }
+        },
+        "lint": {
+            "executor": "@nx/eslint:lint"
+        }
+    }
+}

@@ -1,0 +1,36 @@
+{
+      "name": "assets-dashboard",
+      "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+      "sourceRoot": "libs/assets/dashboard/src",
+      "prefix": "lib",
+      "projectType": "library",
+      "tags": ["feature", "assets"],
+      "targets": {
+            "build": {
+                  "executor": "@nx/angular:ng-packagr-lite",
+                  "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+                  "options": {
+                        "project": "libs/assets/dashboard/ng-package.json"
+                  },
+                  "configurations": {
+                        "production": {
+                              "tsConfig": "libs/assets/dashboard/tsconfig.lib.prod.json"
+                        },
+                        "development": {
+                              "tsConfig": "libs/assets/dashboard/tsconfig.lib.json"
+                        }
+                  },
+                  "defaultConfiguration": "production"
+            },
+            "test": {
+                  "executor": "@nx/vite:test",
+                  "outputs": ["{options.reportsDirectory}"],
+                  "options": {
+                        "reportsDirectory": "../../../coverage/libs/assets/dashboard"
+                  }
+            },
+            "lint": {
+                  "executor": "@nx/eslint:lint"
+            }
+      }
+}

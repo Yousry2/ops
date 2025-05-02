@@ -1,0 +1,20 @@
+@let treeNode = node();
+
+<div class="node">
+        <label>
+                <input type="checkbox" [checked]="checked()" [indeterminate]="indeterminate()"
+                        (change)="toggleChecked(!checked())" />
+                {{ node().title }} {{ node().id }}
+        </label>
+
+        @if (treeNode.isFolder && treeNode.children.length) {
+        <div class="children">
+                <div class="node">
+                        @for (child of treeNode.children; track child.id) {
+
+                        <lib-asset-node [node]="child" #childNode />
+                        }
+                </div>
+        </div>
+        }
+</div>
