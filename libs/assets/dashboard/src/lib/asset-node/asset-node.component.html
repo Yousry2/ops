@@ -1,17 +1,27 @@
 @let treeNode = node();
-
-<div class="node">
-        <label>
-                <input type="checkbox" [checked]="checked()" [indeterminate]="indeterminate()"
-                        (change)="toggleChecked(!checked())" />
-                {{ node().title }} {{ node().id }}
-        </label>
-
+<div class="pl-4 mt-1 block">
+        <div class="mb-1">
+                <div class="node">
+                        <div data-expanded="true"
+                                class="flex items-center justify-between p-2 rounded hover:bg-hover cursor-pointer">
+                                <div class="flex items-center">
+                                        <label for="`test-${{node().id}}`">
+                                                <span class="text-nowrap">
+                                                        <input id=`test-${{node().id}}` class="mr-2 text-primary"
+                                                                fill="currentColor" type="checkbox"
+                                                                [checked]="checked()" [indeterminate]="indeterminate()"
+                                                                (change)="toggleChecked(!checked())" />
+                                                        {{ node().title}}
+                                                </span>
+                                        </label>
+                                </div>
+                        </div>
+                </div>
+        </div>
         @if (treeNode.isFolder && treeNode.children.length) {
         <div class="children">
                 <div class="node">
                         @for (child of treeNode.children; track child.id) {
-
                         <lib-asset-node [node]="child" #childNode />
                         }
                 </div>

@@ -1,1 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* You can add global styles to this file, and also import other style files */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top */
+    min-height: 100vh;
+    // width: 100wh;
+    //    / background-color: #f0f0f0; /* Light gray background for contrast */
+    padding: 2rem; /* Add some padding */
+    font-family: Inter, sans-serif; /* Apply Inter font */
+}
