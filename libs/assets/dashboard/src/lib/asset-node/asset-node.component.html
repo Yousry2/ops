@@ -1,28 +1,30 @@
 @let treeNode = node();
-<div class="pl-4 mt-1 block">
-        <div class="mb-1">
+<div class="mt-1 block">
+        <label class=" block  hover:bg-hover cursor-pointer" [class]=`pl-${level()*4}`>
                 <div class="node">
-                        <div data-expanded="true"
-                                class="flex items-center justify-between p-2 rounded hover:bg-hover cursor-pointer">
+                        <div data-expanded="true" class="flex items-center justify-between p-2 rounded ">
                                 <div class="flex items-center">
-                                        <label for="`test-${{node().id}}`">
-                                                <span class="text-nowrap">
-                                                        <input id=`test-${{node().id}}` class="mr-2 text-primary"
+                                        <label>
+                                                <span class=" text-nowrap cursor-pointer">
+                                                        <input id=`test-${{node().id}}` class=" mr-2 text-primary"
                                                                 fill="currentColor" type="checkbox"
                                                                 [checked]="checked()" [indeterminate]="indeterminate()"
                                                                 (change)="toggleChecked(!checked())" />
-                                                        {{ node().title}}
+                                                        <span class="cursor-pointer "
+                                                                [class]="treeNode.isFolder ? 'font-bold' : ''">
+                                                                {{ node().title}}
+                                                        </span>
                                                 </span>
                                         </label>
                                 </div>
                         </div>
                 </div>
-        </div>
+        </label>
         @if (treeNode.isFolder && treeNode.children.length) {
         <div class="children">
                 <div class="node">
                         @for (child of treeNode.children; track child.id) {
-                        <lib-asset-node [node]="child" #childNode />
+                        <lib-asset-node [level]="level()+1" [node]="child" #childNode />
                         }
                 </div>
         </div>

@@ -23,6 +23,7 @@ import { TreeNode } from '@ops/utils';
 })
 export class AssetNodeComponent implements OnInit {
     readonly node = input.required<TreeNode>();
+    readonly level = input(1);
     readonly expanded = signal(true);
     readonly _checked = signal(false);
     readonly assetsStore = inject(AssetsStore);
@@ -53,7 +54,7 @@ export class AssetNodeComponent implements OnInit {
         const node = this.node();
         if (node.isFolder && node.children) {
             this.childrenChecked().forEach((child) =>
-                child.toggleChecked(checked)
+                child.toggleChecked(checked),
             );
         } else {
             this.assetsStore.toggleAsset(node, checked);
@@ -67,7 +68,7 @@ export class AssetNodeComponent implements OnInit {
 
         return (
             this.childrenChecked().some(
-                (child) => child.checked() || child.indeterminate()
+                (child) => child.checked() || child.indeterminate(),
             ) && !this.childrenChecked().every((child) => child.checked())
         );
     });

@@ -1,6 +1,6 @@
-<body class="bg-gray-100">
+<div class=" p-8 bg-gray-100">
         <div class="w-item-selector bg-surface text-on-surface text-base border border-border rounded shadow-md">
-                <div class="p-2">
+                <div>
                         @for (node of data(); track node.id) {
                         <lib-asset-node [node]="node" />
                         }
@@ -14,4 +14,4 @@
                         </button>
                 </div>
         </div>
-</body>
+</div>

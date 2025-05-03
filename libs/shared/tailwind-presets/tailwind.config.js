@@ -1,4 +1,9 @@
 module.exports = {
+        safelist: [
+            {
+              pattern: /pl-.+/,
+            }
+    ],
     theme: {
         extend: {
             colors: {
