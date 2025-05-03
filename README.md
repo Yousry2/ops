@@ -1,101 +1,108 @@
 # Ops
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+# Rentman Assets App
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+<a alt="Rentman logo" href="https://rentman-ops.netlify.app/assets" target="_blank" rel="noreferrer"><img src="https://rentman-ops.netlify.app/rentman-logo.svg" width="800"></a>
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+## ✨ ** [Check Live Demo](https://rentman-ops.netlify.app/assets).✨ **
 
-## Run tasks
+<br>
 
-To run the dev server for your app, use:
+> [!CAUTION]
+> Please note this demo is published on static github pages so in order to refresh the app please **Always** navigate back to the root page https://rentman-ops.netlify.app/assets and **DON'T** use the homepage url https://rentman-ops.netlify.app/ **OR** the refresh button
 
-```sh
-npx nx serve assets
+<br>
+
+## Tasks to be completed
+
+-   [[Done]] ~~Implement the new algorithm to convert folders and items into DFS Tree to easily traverse all items~~
+
+-   [[Done]] ~~Add TanStack Query instead of http resource and use for memoization and auto retrials ~
+
+-   [[Done]] ~~Add responsive design for mobile and tablet screens~~
+
+-   [[Done]] ~~Add input signals to main components~~
+
+-   [[Done]] ~~Implement the new Signal Store ~~
+
+-   [[Done]] ~~Add withStorageSync to automatically save selection from signal store~~
+
+-   [[Done]] Add tailwind presets as separate library and extend it in assets app
+
+-   Generate JsDocs
+
+-   Add E2E Testing
+
+<br>
+
+## Run Application locally
+
+1- Make sure you have the latest npm installed in your machine [Download NPM ](https://nodejs.org/en/download).
+
+2- Clone the application repository in your machine and using your operating system termminal navigate to the repository root file path
+
+3- Install app libraries using npm
+
+```
+npm i
 ```
 
-To create a production bundle:
+4- Run Rentman Assets App
 
-```sh
-npx nx build assets
+```
+npm start
 ```
 
-To see all available targets to run for a project, run:
+<br>
 
-```sh
-npx nx show project assets
+## App Architecture
+
+<img src="https://rentman-ops.netlify.app/graph.jpg" width="800">
+
+Run the following command in repository root path and then navigate open your browser to http://localhost:4200/ to check application dependencies and architecture
+
+```
+nx graph
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+The application consists of the following applications/libraries :
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+**1- Assets** : Scaffold application which will import all libraries features along with their dependencies and integrate them
 
-## Add new projects
+**2- Assets-Dashboard** : Feature library that contains all pages/components related to the the feature module
 
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
+**3- Assets-Store** : Feature library that contains all pages/components related to the the user auth module
 
-Use the plugin's generator to create new projects.
+~~**4- Asset-Data-Access** : Services Library will handle all domain models, api services~~
 
-To generate a new application, use:
+**5- Utils** : Utility library to handle all common services and type definitions
 
-```sh
-npx nx g @nx/angular:app demo
-```
+**6- Tailwind-Presets** : Contains all tailwind configurations, presets, themes and fonts
 
-To generate a new library, use:
+**7- environments** : Utility library to contain environment configuration files for all projects
 
-```sh
-npx nx g @nx/angular:lib mylib
-```
+<br>
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+## Tests
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### 1- [To Be added later] E2E Testing (Playwright) :
 
-## Set up CI!
+<br>
 
-### Step 1
+## Dependencies :
 
-To connect to Nx Cloud, run the following command:
+-   Nx monorepo 20.8
 
-```sh
-npx nx connect
-```
+-   Angular 19.2
 
-Connecting to Nx Cloud ensures a [fast and scalable CI](https://nx.dev/ci/intro/why-nx-cloud?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) pipeline. It includes features such as:
+-   tanstack/angular-query-experimental
 
-- [Remote caching](https://nx.dev/ci/features/remote-cache?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task distribution across multiple machines](https://nx.dev/ci/features/distribute-task-execution?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Automated e2e test splitting](https://nx.dev/ci/features/split-e2e-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task flakiness detection and rerunning](https://nx.dev/ci/features/flaky-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+-   Angular Signals
 
-### Step 2
+-   Angular Signals store NGRX/store
 
-Use the following command to configure a CI workflow for your workspace:
+-   Tailwindcss version 3
 
-```sh
-npx nx g ci-workflow
-```
+-   Json-Server
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+-   angular-architects/ngrx-toolkit
