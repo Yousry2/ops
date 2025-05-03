@@ -18,6 +18,7 @@
             "@ops/assets-dashboard": ["libs/assets/dashboard/src/index.ts"],
             "@ops/assets-store": ["libs/assets/store/src/index.ts"],
             "@ops/dashboard": ["libs/libs/assets/dashboard/src/index.ts"],
+            "@ops/environments": ["libs/shared/environments/src/index.ts"],
             "@ops/utils": ["libs/shared/utils/src/index.ts"]
         }
     },

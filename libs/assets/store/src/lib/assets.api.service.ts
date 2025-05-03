@@ -1,15 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { environment } from '@ops/environments';
 import { RawData } from '@ops/utils';
-
-export const apiUrl = 'http://localhost:3000/';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AssetsApiService {
-    private url = apiUrl + 'assets';
+    private url = environment.server + '/assets';
 
     constructor(private http: HttpClient) {}
 
