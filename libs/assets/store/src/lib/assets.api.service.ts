@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
     providedIn: 'root',
 })
 export class AssetsApiService {
-    private url = environment.server + '/assets';
+    private url = environment.server + '/assets-data';
 
     constructor(private http: HttpClient) {}
 

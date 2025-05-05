@@ -25,10 +25,8 @@
                 "styles": ["apps/assets/src/styles.scss"],
                 "scripts": [],
                 "server": "apps/assets/src/main.server.ts",
-                "ssr": {
-                    "entry": "apps/assets/src/server.ts"
-                },
-                "prerender": true
+                "ssr": false,
+                "prerender": false
             },
             "configurations": {
                 "production": {

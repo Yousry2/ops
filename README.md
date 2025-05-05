@@ -5,7 +5,7 @@
 ## ✨ ** [Check Live Demo](https://rentman-ops.netlify.app/assets).✨ **
 
 > [!CAUTION]
-> Please note this demo is published on netlify so in order to refresh the app please **Always** navigate to assets page https://rentman-ops.netlify.app/assets and **DON'T** use the homepage url https://rentman-ops.netlify.app/ 
+> Please note this demo is published on netlify so in order to refresh the app please **Always** navigate to assets page https://rentman-ops.netlify.app/assets and **DON'T** use the homepage url https://rentman-ops.netlify.app/
 
 <br>
 
@@ -37,7 +37,7 @@
 
 ## Run Application locally
 
-1- Make sure you have the latest npm installed in your machine [Download NPM ](https://nodejs.org/en/download).
+1- Make sure you have the latest npm installed in your machine [Download NPM ](https://nodejs.org/en/download). locally I use node v20.9.0
 
 2- Clone the application repository in your machine and using your operating system terminal navigate to the repository root file path
 
@@ -74,12 +74,12 @@ npx nx graph
 The application consists of the following applications/libraries :
 
 **1- Assets** : Scaffold application which will import all libraries features along with their dependencies and integrate them
+
 **2- Assets-Dashboard** : Feature library that contains all pages/components related to the the feature module
 
 **3- Assets-Store** : Feature library that contains all pages/components related to the the user auth module
 
 [Removed] ~~**4- Asset-Data-Access** : Services Library will handle all domain models, api services~~
-
 
 **5- Utils** : Utility library to handle all common services and type definitions
 

@@ -1,5 +1,5 @@
 {
-    "assets": {
+    "assets-data": {
         "folders": {
             "columns": ["id", "title", "parent_id"],
             "data": [
