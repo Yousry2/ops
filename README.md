@@ -27,6 +27,8 @@
 
 -   [[Done]] ~~Deploy on Netlify~~
 
+-   [[Done]] ~~Configure Netlify to serve asset json file using netlify functions~~
+
 -   [[Done]] ~~Use Nerlify functions to publish the json backend mocks~~
 
 -   Generate JsDocs
@@ -50,7 +52,7 @@ npm i
 4- Start json mock server
 
 ```
-json-server --watch assets.json
+json-server --watch assets-data.json
 ```
 
 5- Run Rentman Assets App
@@ -59,11 +61,12 @@ json-server --watch assets.json
 npm start
 ```
 
+6- Open your browser and navigate to http://localhost:4200
+
+
 <br>
 
 ## App Architecture
-
-<img src="https://rentman-ops.netlify.app/graph.png" width="400">
 
 Run the following command in repository root path and then open your browser, navigate to to http://127.0.0.1:4211/projects to check application dependencies and architecture
 
@@ -71,7 +74,11 @@ Run the following command in repository root path and then open your browser, na
 npx nx graph
 ```
 
-The application consists of the following applications/libraries :
+<img src="https://rentman-ops.netlify.app/graph.png" width="400">
+
+
+
+The application consists of the following apps/libraries :
 
 **1- Assets** : Scaffold application which will import all libraries features along with their dependencies and integrate them
 
