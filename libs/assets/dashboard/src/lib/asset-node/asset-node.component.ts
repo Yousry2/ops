@@ -10,8 +10,8 @@ import {
     viewChildren,
 } from '@angular/core';
 
-import { CommonModule } from '@angular/common';
 import { AssetsStore } from '@ops/assets-store';
+import { CommonModule } from '@angular/common';
 import { TreeNode } from '@ops/utils';
 
 @Component({
@@ -20,7 +20,7 @@ import { TreeNode } from '@ops/utils';
     templateUrl: './asset-node.component.html',
     styleUrl: './asset-node.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
-})
+    })
 export class AssetNodeComponent implements OnInit {
     readonly node = input.required<TreeNode>();
     readonly level = input(1);

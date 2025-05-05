@@ -11,8 +11,28 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    // width: 100wh;
-    //    / background-color: #f0f0f0; /* Light gray background for contrast */
-    padding: 2rem; /* Add some padding */
-    font-family: Inter, sans-serif; /* Apply Inter font */
+    padding: 2rem;
+    font-family: Inter, sans-serif;
+}
+
+.children {
+    overflow: hidden;
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.children-expanded {
+    max-height: 2000px;
+    opacity: 1;
+}
+
+.children-collapsed {
+    max-height: 0;
+    opacity: 0;
+}
+
+button.chevron {
+    padding: 0px 8px 0px 16px;
+    transition: transform 1s ease;
+    color: #666;
+    font-size: 10px;
 }

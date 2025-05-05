@@ -17,11 +17,20 @@
                                                 </span>
                                         </label>
                                 </div>
+                                @if(treeNode.isFolder && treeNode.children.length) {
+                                <button class="chevron" (click)="toggleExpanded()">
+                                        @if(expanded()) {
+                                        <span>&#9650;</span>
+                                        } @else {
+                                        <span>&#9660;</span>
+                                        }
+                                </button>
+                                }
                         </div>
                 </div>
         </label>
         @if (treeNode.isFolder && treeNode.children.length) {
-        <div class="children">
+        <div class="children" [class]="expanded() ? 'children-expanded' : 'children-collapsed'">
                 <div class="node">
                         @for (child of treeNode.children; track child.id) {
                         <lib-asset-node [level]="level()+1" [node]="child" #childNode />
