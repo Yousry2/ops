@@ -37,3 +37,22 @@ button.chevron {
     font-size: 12px;
     transform: none;
 }
+
+:root {
+    /* Colors */
+    --color-surface: #ffffff;
+    --color-hover: #f3f4f6;
+    --color-on-surface: #374151;
+    --color-border: #e5e7eb;
+    --color-primary: #4f46e5;
+    --color-primary-600: #4338ca;
+
+    /* Font sizes */
+    --font-size-base: 1rem;
+
+    /* Border radius */
+    --border-radius: 0.25rem;
+
+    /* Spacing */
+    --spacing-item-selector: 2.5rem;
+}
