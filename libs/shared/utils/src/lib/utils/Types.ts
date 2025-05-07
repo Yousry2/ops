@@ -1,7 +1,10 @@
-// The following code is a TypeScript type definition for the raw data structure in the response.json file.
 export type FolderRow = [id: number, title: string, parentId: number | null];
 export type ItemRow = [id: number, title: string, folderId: number];
 
+/**
+ * Interface representing the raw data structure from the response.json file.
+ * Contains collections of folders and items with their column definitions.
+ */
 export interface RawData {
     folders: {
         columns: ['id', 'title', 'parent_id'];
@@ -13,8 +16,11 @@ export interface RawData {
     };
 }
 
-// The following code is a TypeScript interface definition for the new folder and item structure that will be used in the tree in our application.
-// It defines the structure of a folder and an item, including their properties and types.
+/**
+ * Type representing a node in the tree structure for the application.
+ * Can be either a folder node (with children) or an item node (without children).
+ * Both types share common properties like id, title, and parentId.
+ */
 export type TreeNode =
     | {
           id: number;
@@ -26,6 +32,7 @@ export type TreeNode =
           id: number;
           title: string;
           parentId: number | null;
-          children: TreeNode[]; // folders have children; items don’t
+          /** Collection of child nodes (only folders have children) */
+          children: TreeNode[];
           isFolder: true;
       };

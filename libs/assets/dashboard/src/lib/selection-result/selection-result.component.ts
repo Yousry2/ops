@@ -1,8 +1,14 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
-import { CommonModule } from '@angular/common';
 import { AssetsStore } from '@ops/assets-store';
+import { CommonModule } from '@angular/common';
 
+/**
+ * Component for displaying the results of asset selection.
+ *
+ * This component renders the currently selected assets from the AssetsStore
+ * and displays them to the user in a consolidated view.
+ */
 @Component({
     selector: 'lib-selection-result',
     imports: [CommonModule],
@@ -11,10 +17,5 @@ import { AssetsStore } from '@ops/assets-store';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectionResultComponent {
-    assetStore = inject(AssetsStore);
-    selection = this.assetStore.selection;
-
-    clearSelecion() {
-        this.assetStore.clearSelection();
-    }
+    selection = inject(AssetsStore).selection;
 }

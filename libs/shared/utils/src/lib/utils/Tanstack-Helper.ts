@@ -1,3 +1,8 @@
+
+/* 
+** I didn't implement this code, it is from another initiative to connect signal store with tanstack query
+*/
+
 import {
     type EmptyFeatureResult,
     type Prettify,

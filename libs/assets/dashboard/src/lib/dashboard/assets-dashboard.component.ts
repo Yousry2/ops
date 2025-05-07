@@ -1,4 +1,3 @@
-import { AssetsApiService, AssetsStore } from '@ops/assets-store';
 import {
     ChangeDetectionStrategy,
     Component,
@@ -7,10 +6,13 @@ import {
 } from '@angular/core';
 
 import { AssetNodeComponent } from '../asset-node/asset-node.component';
+import { AssetsStore } from '@ops/assets-store';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { SelectionResultComponent } from '../selection-result/selection-result.component';
 
+/**
+ * This component serves as the main container for asset visualization and management,
+ */
 @Component({
     selector: 'lib-assets-dashboard',
     imports: [CommonModule, AssetNodeComponent, SelectionResultComponent],
@@ -19,16 +21,11 @@ import { SelectionResultComponent } from '../selection-result/selection-result.c
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AssetsDashboardComponent {
-    readonly assetStore = inject(AssetsStore);
-    readonly data = this.assetStore.data;
-    readonly http = inject(HttpClient);
-    readonly assetApiService = inject(AssetsApiService);
-
-    readonly childrenChecked = viewChildren(AssetNodeComponent, {
+    readonly data = inject(AssetsStore).data;
+    readonly assetNodeChildren = viewChildren(AssetNodeComponent, {
         read: AssetNodeComponent,
     });
-
-    clearSelection() {
-        this.childrenChecked().forEach((child) => child.toggleChecked(false));
+    protected clearSelection() {
+        this.assetNodeChildren().forEach((child) => child.toggleChecked(false));
     }
 }

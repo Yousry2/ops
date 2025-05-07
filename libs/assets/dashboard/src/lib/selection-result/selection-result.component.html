@@ -1,5 +1,9 @@
-<p class="text-xs text-gray-600 mb-2"> @for (value of selection(); track $index) {
+<p class="text-xs text-gray-600 mb-2">
+        @if(selection().length >0){
+
+        @for (value of selection(); track $index) {
         {{value}}
-        }
-        @if(selection().length) {
-        }Selected</p>
+        }}
+        @else {No item }
+        Selected
+</p>
