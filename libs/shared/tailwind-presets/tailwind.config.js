@@ -11,8 +11,6 @@ module.exports = {
                 surface: 'var(--color-surface)',
                 hover: 'var(--color-hover)',
                 'on-surface': 'var(--color-on-surface)',
-                border: 'var(--color-border)',
-                primary: 'var(--color-primary)',
                 primary: {
                     DEFAULT: 'var(--color-primary)',
                     600: 'var(--color-primary)',
