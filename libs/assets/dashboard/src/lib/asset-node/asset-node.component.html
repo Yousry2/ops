@@ -1,34 +1,37 @@
 @let treeNode = node();
+
+@let isFolderNode = treeNode.isFolder && treeNode.children.length >0;
 <div class="mt-1 block">
-        <label class=" block  hover:bg-hover cursor-pointer" [class]=`pl-${level()*4}`>
-                <div class="node">
-                        <div data-expanded="true" class="flex items-center justify-between p-2 rounded ">
-                                <div class="flex items-center">
-                                        <label>
-                                                <span class=" text-nowrap cursor-pointer">
-                                                        <input id=`test-${{node().id}}` class=" mr-2 text-primary"
-                                                                fill="currentColor" type="checkbox"
-                                                                [checked]="checked()" [indeterminate]="indeterminate()"
-                                                                (change)="toggleChecked(!checked())" />
-                                                        <span class="cursor-pointer "
-                                                                [class]="treeNode.isFolder ? 'font-bold' : ''">
-                                                                {{ node().title}}
-                                                        </span>
-                                                </span>
+        <div class=" block  hover:bg-hover" [class]=`pl-${level()*4}`>
+
+                <div (keyup.enter)="toggleExpanded()" (keyup.space)="toggleExpanded()" (click)="toggleExpanded()"
+                        class="flex items-center justify-between p-2 rounded " tabindex="0"
+                        [class]=" isFolderNode ? 'cursor-pointer' : ''">
+                        <div class=" flex items-center ">
+                                <span class=" text-nowrap ">
+                                        <input id=`test-{{node().id}}` class=" mr-2 cursor-pointer text-primary"
+                                                fill="currentColor" type="checkbox" [checked]="checked()"
+                                                [indeterminate]="indeterminate()"
+                                                (change)="toggleChecked(!checked());$event.stopPropagation()" />
+                                        <label for=`test-{{node().id}}` (click)="$event.stopPropagation()"
+                                                class="cursor-pointer" (keyup)="$event.stopPropagation()" tabindex=""
+                                                [class]="treeNode.isFolder ? 'font-bold' : ''">
+                                                {{ node().title}}
                                         </label>
-                                </div>
-                                @if(treeNode.isFolder && treeNode.children.length) {
-                                <button class="chevron" (click)="toggleExpanded()">
-                                        @if(expanded()) {
-                                        <span>&#11165;</span>
-                                        } @else {
-                                        <span>&#11167;</span>
-                                        }
-                                </button>
-                                }
+                                </span>
                         </div>
+                        @if(isFolderNode) {
+                        <button class="chevron">
+                                @if(expanded()) {
+                                <span>&#11165;</span>
+                                } @else {
+                                <span>&#11167;</span>
+                                }
+                        </button>
+                        }
                 </div>
-        </label>
+
+        </div>
         @if (treeNode.isFolder && treeNode.children.length) {
         <div class="children" [class]="expanded() ? 'children-expanded' : 'children-collapsed'">
                 <div class="node">
