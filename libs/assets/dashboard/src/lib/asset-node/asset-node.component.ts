@@ -47,7 +47,7 @@ export class AssetNodeComponent implements OnInit {
     }
 
     toggleExpanded(): void {
-        this.expanded.update((val) => !val);
+         this.expanded.update((val) => !val);
     }
 
     toggleChecked(checked: boolean): void {

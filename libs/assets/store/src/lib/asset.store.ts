@@ -1,3 +1,5 @@
+import { RawData, TreeNode, buildFolderTree } from '@ops/utils';
+import { effect, inject } from '@angular/core';
 import {
     patchState,
     signalStore,
@@ -5,12 +7,10 @@ import {
     withMethods,
     withState,
 } from '@ngrx/signals';
-import { RawData, TreeNode, buildFolderTree } from '@ops/utils';
 
-import { withStorageSync } from '@angular-architects/ngrx-toolkit';
-import { inject } from '@angular/core';
-import { lastValueFrom } from 'rxjs';
 import { AssetsApiService } from './assets.api.service';
+import { lastValueFrom } from 'rxjs';
+import { withStorageSync } from '@angular-architects/ngrx-toolkit';
 import { withTanstackQuery } from './tanstack';
 
 interface AssetsState {
@@ -75,25 +75,32 @@ export const AssetsStore = signalStore(
         const assetApiService = inject(AssetsApiService);
         return () => {
             return {
+                enabled: true,
+                retry: 3,
+                retryDelay(failureCount, error) {
+                    console.error('Retrying...', failureCount, error);
+                    return 1000 * Math.pow(2, failureCount);
+                },
                 queryKey: ['assets'],
-                queryFn: () =>
-                    lastValueFrom(assetApiService.getAll()).catch((error) => {
-                        console.error(error);
-                        return null;
-                    }),
+
+                staleTime: 1000 * 60 * 5, // 5 minutes
+                queryFn: () => {
+                    console.log('Fetching data...');
+                    return lastValueFrom(assetApiService.getAll());
+                },
             };
         };
     }),
+
     withHooks({
         onInit: (store) => {
-            // A workaround could be fixed by implementing a custom hook in the future if i have time
-            // Due to limitation of hooks in ngrx signals there is no afterInit hook, we need to use timer to sync with store first
-            // and then we can fetch data from json
-
-            // if (!store.data() || store.data().length === 0) {
-            console.log('Initializing store...');
-            // store.setData();
-            // }
+            effect(() => {
+                const data = store.assetsTanstackQuery().data();
+                console.log('Data on init', data);
+                if (data) {
+                    store.setData(data);
+                }
+            });
         },
     }),
     withStorageSync({
@@ -111,5 +118,5 @@ export const AssetsStore = signalStore(
         },
         autoSync: true,
         storage: () => localStorage,
-    })
+    }),
 );

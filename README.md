@@ -29,8 +29,6 @@
 
 -   [[Done]] ~~Configure Netlify to serve asset json file using netlify functions~~
 
--   [[Done]] ~~Use Nerlify functions to publish the json backend mocks~~
-
 -   Generate JsDocs
 
 -   Add E2E Testing
@@ -86,7 +84,7 @@ The application consists of the following apps/libraries :
 
 **3- Assets-Store** : Feature library that contains all pages/components related to the the user auth module
 
-[Removed] ~~**4- Asset-Data-Access** : Services Library will handle all domain models, api services~~
+**4- Asset-Data-Access** : Services Library will handle all state management , domain models, api services
 
 **5- Utils** : Utility library to handle all common services and type definitions
 
