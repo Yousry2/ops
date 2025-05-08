@@ -11,7 +11,7 @@
 
 ## Project Overview
 
-An Angular-based asset management application built using Nx workspace, Angular 19.2, Signal Store (NGRX/signals), TanStack Query, and Tailwind CSS. The application allows users to browse a hierarchical tree of assets (folders and items), select items, and manage these selections.
+An Angular-based application built using Nx workspace, Angular 19.2, Signal Store (NGRX/signals), TanStack Query, and Tailwind CSS.
 
 
 ## Tasks to be completed
