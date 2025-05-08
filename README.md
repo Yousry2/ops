@@ -9,6 +9,11 @@
 
 <br>
 
+## Project Overview
+
+An Angular-based asset management application built using Nx workspace, Angular 19.2, Signal Store (NGRX/signals), TanStack Query, and Tailwind CSS. The application allows users to browse a hierarchical tree of assets (folders and items), select items, and manage these selections.
+
+
 ## Tasks to be completed
 
 -   [[Done]] Implement the new algorithm to convert folders and items into DFS Tree to easily traverse all items
@@ -64,7 +69,7 @@ npm start
 
 <br>
 
-## Project Overview
+## Architecture
 
 Run the following command in repository root path and then open your browser, navigate to to http://127.0.0.1:4211/projects to check application dependencies and architecture
 
@@ -78,41 +83,16 @@ npx nx graph
 The application consists of the following apps/libraries :
 
 **1- Assets** : Scaffold application which will import all libraries features along with their dependencies and integrate them
+
 **2- Assets-Dashboard** : Feature library that contains all pages/components related to the the feature module
-**3- Assets-Store** : Feature library that contains all pages/components related to the the user auth module
-**4- Asset-Data-Access** : Services Library will handle all state management , domain models, api services
-**5- Utils** : Utility library to handle all common services and type definitions
-**6- Tailwind-Presets** : Contains all tailwind configurations, presets, themes and fonts
-**7- environments** : Utility library to contain environment configuration files for all projects
 
-<br>
+**3- Asset-Store** : Services Library handles state management , domain models, api services
 
-## Tests
+**4- Utils** : Utility library to handle all common services and type definitions
 
-1- [To Be added later] E2E Testing (Playwright)
+**5- Tailwind-Presets** : Contains all tailwind configurations, presets, themes and fonts
 
-<br>
-
-## Dependencies :
-
--   Nx monorepo 20.8
--   Angular 19.2
--   tanstack/angular-query-experimental
--   Angular Signals
--   Angular Signals store NGRX/store
--   Tailwindcss version 3
--   Json-Server
--   angular-architects/ngrx-toolkit
-
-
-
-# Project Documentation [[ this section is auto generated ]]
-
-## Project Overview
-
-Rentman Ops is an Angular-based asset management application built with a modern architecture using Nx workspace, Angular 19.2, Signal Store (NGRX/signals), TanStack Query, and Tailwind CSS. The application allows users to browse a hierarchical tree of assets (folders and items), select items, and manage these selections.
-
-## Architecture
+**6- environments** : Utility library to contain environment configuration files for all projects
 
 The application is structured into the following main components:
 
@@ -230,4 +210,24 @@ Custom integration with TanStack Query for efficient data fetching with:
 5. **Persistence**:
    - Selection state is automatically synchronized with local storage
    - When the app reloads, selection state is restored from local storage
+
+
+
+
+## Tests
+
+1- [To Be added later] E2E Testing (Playwright)
+
+<br>
+
+## Dependencies :
+
+-   Nx monorepo 20.8
+-   Angular 19.2
+-   tanstack/angular-query-experimental
+-   Angular Signals
+-   Angular Signals store NGRX/store
+-   Tailwindcss version 3
+-   Json-Server
+-   angular-architects/ngrx-toolkit
 
